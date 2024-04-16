@@ -2,7 +2,6 @@ import flask
 from flask import request, render_template, redirect, url_for
 from flask_cors import CORS
 import requests
-# import json
 
 app = flask.Flask(__name__)
 app.config["SECRET_KEY"] = "seasdad(*2sffcra01^23sdet"
@@ -10,13 +9,12 @@ app.config["SECRET_KEY"] = "seasdad(*2sffcra01^23sdet"
 CORS(app)
 
 # Get this URL from the Azure Overview page of your API web app
-api_url = "jmincieli-hw10.azurewebsites.net" # base url for API endpoints
+api_url = "jmincieli-hw10.azurewebsites.net/predict" # base url for API endpoints
 
 # main index page route
 @app.route("/")
 def index():
     return render_template("index.html")
-
 
 @app.route("/predict", methods=["GET", "POST"])
 def predict():
